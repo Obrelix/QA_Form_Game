@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtb_Name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstb_Profiles = new System.Windows.Forms.ListBox();
@@ -47,6 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chkb_AddNew = new System.Windows.Forms.CheckBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.tmrCheck = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pnl_Add.SuspendLayout();
             this.pnl_Psw.SuspendLayout();
@@ -72,7 +74,7 @@
             // lstb_Profiles
             // 
             this.lstb_Profiles.FormattingEnabled = true;
-            this.lstb_Profiles.Location = new System.Drawing.Point(14, 25);
+            this.lstb_Profiles.Location = new System.Drawing.Point(41, 71);
             this.lstb_Profiles.Name = "lstb_Profiles";
             this.lstb_Profiles.Size = new System.Drawing.Size(244, 95);
             this.lstb_Profiles.TabIndex = 2;
@@ -119,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 9);
+            this.label2.Location = new System.Drawing.Point(38, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 4;
@@ -136,7 +138,7 @@
             // 
             // btn_StartGame
             // 
-            this.btn_StartGame.Location = new System.Drawing.Point(264, 65);
+            this.btn_StartGame.Location = new System.Drawing.Point(210, 280);
             this.btn_StartGame.Name = "btn_StartGame";
             this.btn_StartGame.Size = new System.Drawing.Size(75, 23);
             this.btn_StartGame.TabIndex = 6;
@@ -146,19 +148,20 @@
             // 
             // btn_HighScores
             // 
-            this.btn_HighScores.Location = new System.Drawing.Point(264, 25);
+            this.btn_HighScores.Location = new System.Drawing.Point(41, 280);
             this.btn_HighScores.Name = "btn_HighScores";
             this.btn_HighScores.Size = new System.Drawing.Size(75, 23);
             this.btn_HighScores.TabIndex = 7;
             this.btn_HighScores.Text = "High Scores";
             this.btn_HighScores.UseVisualStyleBackColor = true;
+            this.btn_HighScores.Click += new System.EventHandler(this.btn_HighScores_Click);
             // 
             // pnl_Add
             // 
             this.pnl_Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_Add.Controls.Add(this.panel1);
             this.pnl_Add.Controls.Add(this.label3);
-            this.pnl_Add.Location = new System.Drawing.Point(14, 149);
+            this.pnl_Add.Location = new System.Drawing.Point(41, 195);
             this.pnl_Add.Name = "pnl_Add";
             this.pnl_Add.Size = new System.Drawing.Size(244, 79);
             this.pnl_Add.TabIndex = 8;
@@ -169,7 +172,7 @@
             this.pnl_Psw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_Psw.Controls.Add(this.panel4);
             this.pnl_Psw.Controls.Add(this.label7);
-            this.pnl_Psw.Location = new System.Drawing.Point(14, 149);
+            this.pnl_Psw.Location = new System.Drawing.Point(41, 195);
             this.pnl_Psw.Name = "pnl_Psw";
             this.pnl_Psw.Size = new System.Drawing.Size(244, 51);
             this.pnl_Psw.TabIndex = 9;
@@ -197,6 +200,7 @@
             // 
             this.txtb_Psw.Location = new System.Drawing.Point(61, 3);
             this.txtb_Psw.Name = "txtb_Psw";
+            this.txtb_Psw.PasswordChar = '*';
             this.txtb_Psw.Size = new System.Drawing.Size(100, 20);
             this.txtb_Psw.TabIndex = 4;
             // 
@@ -212,7 +216,7 @@
             // chkb_AddNew
             // 
             this.chkb_AddNew.AutoSize = true;
-            this.chkb_AddNew.Location = new System.Drawing.Point(158, 126);
+            this.chkb_AddNew.Location = new System.Drawing.Point(185, 172);
             this.chkb_AddNew.Name = "chkb_AddNew";
             this.chkb_AddNew.Size = new System.Drawing.Size(100, 17);
             this.chkb_AddNew.TabIndex = 10;
@@ -220,11 +224,16 @@
             this.chkb_AddNew.UseVisualStyleBackColor = true;
             this.chkb_AddNew.CheckedChanged += new System.EventHandler(this.chkb_AddNew_CheckedChanged);
             // 
+            // tmrCheck
+            // 
+            this.tmrCheck.Enabled = true;
+            this.tmrCheck.Tick += new System.EventHandler(this.tmrCheck_Tick);
+            // 
             // frm_StartGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 242);
+            this.ClientSize = new System.Drawing.Size(330, 349);
             this.Controls.Add(this.chkb_AddNew);
             this.Controls.Add(this.pnl_Psw);
             this.Controls.Add(this.pnl_Add);
@@ -270,6 +279,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chkb_AddNew;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Timer tmrCheck;
     }
 }
 

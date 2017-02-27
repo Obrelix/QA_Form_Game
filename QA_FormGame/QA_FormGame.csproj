@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_HiScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HiScores.Designer.cs">
+      <DependentUpon>frm_HiScores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_MainGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,9 +68,17 @@
     <Compile Include="frm_StartGame.Designer.cs">
       <DependentUpon>frm_StartGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.cs" />
+    <Compile Include="Phrases.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_HiScores.resx">
+      <DependentUpon>frm_HiScores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MainGame.resx">
+      <DependentUpon>frm_MainGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_StartGame.resx">
       <DependentUpon>frm_StartGame.cs</DependentUpon>
     </EmbeddedResource>

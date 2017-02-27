@@ -25,9 +25,24 @@ namespace QA_FormGame
             InitializeComponent();
         }
 
+        private void addHighScores()
+        {
+            foreach (var player in PlayerList)
+            {
+                HighScoreList.scan(player);
+            }
+        }
+
         private void frm_StartGame_Load(object sender, EventArgs e)
         {
+            lstb_Profiles.BackColor = Color.AntiqueWhite;
+            panel1.BackColor = Color.Coral;
+            panel4.BackColor = Color.Coral;
+            this.BackColor = Color.Khaki;
             loadPlayers(playersJsonPath);
+            addHighScores();
+            tmrCheck.Interval = 100;
+            tmrCheck.Start();
         }
 
         private void loadPlayers(string jsonPath)
@@ -96,7 +111,11 @@ namespace QA_FormGame
                 PlayerIndex = lstb_Profiles.SelectedIndex;
                 if(PlayerList[PlayerIndex].password == txtb_Psw.Text)
                 {
-                    MessageBox.Show("Password Correct !");
+
+                    frm_MainGame.gFormMainClosed = false;
+                    frm_MainGame form = new frm_MainGame();
+                    form.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -121,6 +140,20 @@ namespace QA_FormGame
         {
             if (!chkb_AddNew.Checked && lstb_Profiles.SelectedIndex != -1)
                 pnl_Psw.Visible = true;
+        }
+
+        private void btn_HighScores_Click(object sender, EventArgs e)
+        {
+            frm_HiScores form = new frm_HiScores();
+            form.Show();
+        }
+
+        private void tmrCheck_Tick(object sender, EventArgs e)
+        {
+            if (frm_MainGame.gFormMainClosed)
+            {
+                this.Show();
+            }
         }
     }
 

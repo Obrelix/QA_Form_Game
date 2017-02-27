@@ -17,20 +17,23 @@ namespace QA_FormGame
         {
             get
             {
+                //return recentScores.Max(); 
                 return _hiscore;
             }
             set
             {
                 _hiscore = recentScores.Max();
             }
+
         }
 
         public void addScore()
         {
-            recentScores.Sort();
+            
             if (recentScores.Count < 15)
             {
                 recentScores.Add(currentScore);
+                recentScores.Sort();
             }
             else if (recentScores.Count >= 15 && recentScores.Min() < currentScore)
             {
@@ -39,6 +42,7 @@ namespace QA_FormGame
                 recentScores.Sort();
             }
         }
+
         public Player()
         {
 
@@ -48,6 +52,7 @@ namespace QA_FormGame
             this.name = name;
             currentScore = curScore;
             this.password = password;
+            hiScore = recentScores.Max();
             addScore();
         }
 
